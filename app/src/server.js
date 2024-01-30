@@ -15,6 +15,16 @@ const messages = "Chao moi nguoi";
 
 //lang nghe su kien tu client
 io.on("connection", (socket) =>{
+    //gui cho user vua ket noi vao
+    socket.emit(
+        "send message from server to client", 
+        "Welcom to Chat App"
+    );
+    //gui cho cac client con lai
+    socket.broadcast.emit(
+        "send message from server to client", 
+        "Co 1 client moi tham gia vao"
+    );
     socket.on("send message from client to server", (messageText, callback) =>{
         const filter = new Filter();
         if (filter.isProfane(messageText)){
@@ -24,6 +34,14 @@ io.on("connection", (socket) =>{
         callback();
     });
 
+    // xu ly chia se vi tri
+    socket.on(
+        "share location from client to server",
+        ( {latitude, longitude}) =>{
+            const linkLocation = `https://www.google.com/maps?q=${latitude},${longitude}`;
+            io.emit("share location from server to client", linkLocation);
+        }
+    )
 
     //ngat ket noi
     socket.on("disconnect", () =>{

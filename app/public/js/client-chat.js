@@ -6,7 +6,7 @@ document.getElementById("form-messages").addEventListener('submit' , (e) =>{
     const messageText = document.getElementById("input-messages").value;
     const acknowledgements = (errors) => {
         if(errors){
-            return alert('tin nhan khong hop le');
+            return alert('tin nhan khong hop le');2
         }
         console.log("send sucessfully");
     };
@@ -20,3 +20,22 @@ document.getElementById("form-messages").addEventListener('submit' , (e) =>{
 socket.on("send message from server to client", (messageText) =>{
     console.log(messageText);
 });
+
+//gui vi tri
+document.getElementById("btn-share-location").addEventListener('click' , ()=>{
+    if(!navigator.geolocation){
+        return alert("trinh duyet dang dung khong ho tro tim vi tri");
+    }
+    navigator.geolocation.getCurrentPosition((position) =>{
+        console.log("position: ", position);
+        const {latitude, longitude} = position.coords;
+        socket.emit("share location from client to server",  {
+            latitude,
+            longitude,
+        })
+    });
+});
+
+socket.on("share location from server to client" , (linkLocation) =>{
+    console.log("linkLocation : ", linkLocation);
+})
