@@ -1,0 +1,12 @@
+//yeu cau server ket noi voi client
+const socket = io();
+
+document.getElementById("form-messages").addEventListener('submit' , (e) =>{
+    e.preventDefault(); 
+    const messageText = document.getElementById("input-messages").value;
+    socket.emit("send message from client to server" , messageText);
+});
+
+socket.on("send message from server to client", (messageText) =>{
+    console.log(messageText);
+});

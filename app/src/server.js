@@ -10,9 +10,21 @@ app.use(express.static(publicPathDiretory));
 const server = http.createServer(app);
 const io = socketio(server);
 
+let count = 1;
+const messages = "Chao moi nguoi";
+
 //lang nghe su kien tu client
-io.on("connection", () =>{
-    console.log("New client connect");
+io.on("connection", (socket) =>{
+    socket.on("send message from client to server", (messageText) =>{
+        io.emit("send message from server to client", messageText);
+    });
+
+
+    //ngat ket noi
+    socket.on("disconnect", () =>{
+        console.log("Client left server");
+})
+
 });
 
 const port = 5678;

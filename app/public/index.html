@@ -7,13 +7,18 @@
     <title>Chat App</title>
 </head>
 <body>
-    <h1>Chat App</h1>
+    <main>
+        <h1>Chat App</h1>
+        <form id="form-messages">
+            <input type="text" id="input-messages">
+            <button type="submit">
+                Send
+            </button>
+        </form>
 
+    </main>
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-        //yeu cau server ket noi voi client
-        const socket = io();
+    <script src="/js/client-chat.js">
     </script>
-    
 </body>
 </html>
