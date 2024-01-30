@@ -4,6 +4,9 @@ const path = require('path');
 const http = require('http');
 const socketio = require("socket.io");
 const Filter = require("bad-words");
+const formatTime = require('date-format');
+const {createMessages} = require("./utils/create-messages")
+
 const publicPathDiretory = path.join(__dirname, "../public");
 app.use(express.static(publicPathDiretory));
 
@@ -18,19 +21,21 @@ io.on("connection", (socket) =>{
     //gui cho user vua ket noi vao
     socket.emit(
         "send message from server to client", 
-        "Welcom to Chat App"
+        createMessages("Welcom to Chat App")
     );
     //gui cho cac client con lai
     socket.broadcast.emit(
         "send message from server to client", 
-        "Co 1 client moi tham gia vao"
+        createMessages("Co 1 client moi tham gia vao")
     );
+    //messages chat
     socket.on("send message from client to server", (messageText, callback) =>{
         const filter = new Filter();
         if (filter.isProfane(messageText)){
             return callback("messageText khong hop le vi co bad-words");
         }
-        io.emit("send message from server to client", messageText);
+
+        io.emit("send message from server to client", createMessages(messageText));
         callback();
     });
 
