@@ -1,12 +1,13 @@
-const formatTime = require('date-format');
+const formatTime = require("date-format");
 
-const createMessages = (messageText) =>{
+const createMessages = (messagesText, username) => {
     return {
-        messageText,
-        createAt : formatTime("dd/MM/yyyy - hh:mm:ss",new Date()),
-    }
-}
+        messagesText,
+        username,
+        createAt : formatTime("dd/MM/yyyy - hh:mm:ss", new Date()),
+    };
+};
 
 module.exports = {
     createMessages,
-}
+};
