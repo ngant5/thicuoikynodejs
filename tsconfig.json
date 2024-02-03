@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "./app/dist",
+    "rootDir": "./app/src",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "*": [
+        "node_modules/*",
+      ]
+    }
+  },
+  "include": [
+    "./app/src/**/*.ts",
+    "./app/src/**/*.d.ts"
+  ],
+}
