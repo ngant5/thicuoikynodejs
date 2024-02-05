@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+<<<<<<< HEAD
     "skipLibCheck": true,
     "target": "es6",
     "module": "commonjs",
@@ -10,4 +11,25 @@
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
+=======
+    "moduleResolution": "node",
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "./app/dist",
+    "rootDir": "./app/src",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "*": [
+        "node_modules/*",
+      ]
+    }
+  },
+  "include": [
+    "./app/src/**/*.ts",
+    "./app/src/**/*.d.ts"
+  ],
+>>>>>>> b0c9e115e19034032daa8f488d0c2262e6777c3c
 }
