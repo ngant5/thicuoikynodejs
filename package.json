@@ -1,0 +1,31 @@
+{
+  "name": "thicuoikynodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "webpack && node public/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/bad-words": "^3.0.3",
+    "@types/dateformat": "^5.0.2",
+    "@types/mime-types": "^2.1.4",
+    "@types/node": "^20.11.16",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "bad-words": "^3.0.4",
+    "date-format": "^4.0.14",
+    "dateformat": "^5.0.3",
+    "mime-types": "^2.1.35",
+    "socket.io": "^4.7.4",
+    "socket.io-client": "^4.7.4"
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Chat App</title>
+    <script src="/socket.io/socket.io.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.2/qs.min.js" integrity="sha512-vCegEXqPUYpZsTGz2lk0jaQ1psxtFeniVJACAXhMVxuoYa/N4nZkjoVFOxLwP7uGeQOoemiz7DQrIpRTj4IBPw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body cz-shortcut-listen="true">
+    <main class="row app">
+        <section class="col-md-3 col-sm-4 app__left">
+            <h1 class="text-center">
+                <span class="app__title" id="app__title">Chat App</span>
+            </h1>
+            <div class="app__title--line"></div>
+            <div class="app__list-user">
+                <ul class="app__list-user--content" id="app__list-user--content">
+                    <!-- Danh sách người dùng sẽ được cập nhật từ server -->
+                </ul>
+            </div>
+        </section>
+
+        <section class="col-md-9 col-sm-8 app__right">
+            <div class="app__messages" id="app__messages">
+                <!-- Nội dung tin nhắn sẽ được cập nhật từ server -->
+            </div>
+
+            <form id="form-messages">
+                <div class="message__input">
+                    <input type="text" id="input-messages" placeholder="Type your message">
+                </div>
+                <div class="message__buttons">
+                    <button type="submit">Send</button>
+                    <button type="button" id="btn-share-location">Share Location</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script type="text/javascript" src="bundle.js"></script>
+
+
+</body>
+</html>
